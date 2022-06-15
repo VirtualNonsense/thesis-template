@@ -1,0 +1,60 @@
+
+% this sets the color and font for the minted linenumber
+\renewcommand{\theFancyVerbLine}{\sffamily
+	\textcolor[rgb]{0.6,0.05,0.05}{\scriptsize
+		\oldstylenums{\arabic{FancyVerbLine}}}}
+
+
+\newlength\myboxwidth
+\setlength{\myboxwidth}{\dimexpr\textwidth-20\fboxsep}
+
+\newtcolorbox[auto counter,
+crefname={Pseudocodeblock}{Pseudocodeblöcke}]%
+{pseudoCodeblock}[1]{
+	arc=1mm, 
+	breakable,
+	left=.8cm,
+	colback=white,
+	coltitle=black,
+	colframe=blue!40!white,
+	fonttitle=\sffamily,
+	label=#1,
+	title=Pseudocode \thetcbcounter, 
+}
+\newenvironment{pseudoCode}[5]{\VerbatimEnvironment\begin{pseudoCodeblock}{#5}\colorbox{blue!40!white}{\textbf{#1}(#2)}\\#3\begin{minted}[linenos,breaklines,escapeinside=||,mathescape=true,firstnumber=#4,baselinestretch=1.2,tabsize=3]{python}}{\end{minted}\end{pseudoCodeblock}}
+
+
+\newtcolorbox[auto counter,
+crefname={Rust Block}{Rust Blöcke}]%
+{rustCodeblock}[1]{
+	arc=0mm, 
+	breakable,
+	left=.8cm,
+	colback=white,
+	coltitle=black,
+	colframe=red!40!white,
+	fonttitle=\sffamily,
+	label=rust:#1,
+	title=Rust \thetcbcounter, 
+}
+
+
+\newenvironment{rustCode}[2]{\VerbatimEnvironment\begin{rustCodeblock}{#2}\begin{minted}[linenos,breaklines,firstnumber=#1,baselinestretch=1.2,tabsize=3]{rust}}{\end{minted}\end{rustCodeblock}}
+
+
+\newtcolorbox[auto counter,
+crefname={Python Block}{Python Blöcke}]%
+{pythonCodeblock}[1]{
+	arc=0mm, 
+	breakable,
+	left=.8cm,
+	colback=white,
+	coltitle=black,
+	colframe=green!40!white,
+	fonttitle=\sffamily,
+	label=python:#1,
+	title=Python \thetcbcounter, 
+}
+
+
+\newenvironment{pythonCode}[2]{\VerbatimEnvironment\begin{pythonCodeblock}{#2}\begin{minted}[linenos,breaklines,firstnumber=#1,baselinestretch=1.2,tabsize=3]{python}}{\end{minted}\end{pythonCodeblock}}

@@ -1,0 +1,67 @@
+% custom head and foot
+\usepackage[automark]{scrlayer-scrpage}
+\pagestyle{scrheadings}
+%\ihead{\headmark}
+\chead{}
+%\ohead{\pagemark}
+\renewcommand*\chaptermarkformat{\chapappifchapterprefix{\ }% 
+	\thechapter.\enskip}
+
+\RedeclareSectionCommand[tocindent=0pt]{section}
+\RedeclareSectionCommand[tocindent=0pt]{subsection}
+%\RedeclareSectionCommand[tocnumwidth=70pt]{chapter}
+
+
+% other packages
+\usepackage{minted}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,relsize,textcomp,csquotes}
+\usepackage{amsmath,amsfonts}
+\usepackage[ngerman,english]{babel}  % flip for German thesis
+\usepackage[final]{graphicx}
+\usepackage{setspace,geometry,xcolor}
+\usepackage{makeidx}
+\usepackage{paralist,ifthen,todonotes}
+\usepackage{url}
+\usepackage[toc]{glossaries}
+\usepackage{pdfpages}
+\usepackage{xcolor}
+\usepackage{varioref}
+\usepackage{tcolorbox}
+\tcbuselibrary{minted,skins,breakable,listings}
+
+% table setup
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{ragged2e}
+\usepackage{lscape}
+
+% pdf hyperref
+\usepackage[
+bookmarks=true,
+bookmarksopen=true,
+bookmarksnumbered=true,
+bookmarksopenlevel=1,
+pdftitle={\titel},
+pdfauthor={\autor},
+pdfcreator={\autor},
+pdfsubject={\titel},
+pdfkeywords={\keywords},
+pdfpagelabels=true,
+colorlinks=true,
+linkcolor=red,
+urlcolor=magenta,
+anchorcolor=black,
+citecolor=cyan,
+filecolor=magenta,
+menucolor=red,
+plainpages=false,
+hypertexnames=true,
+linktocpage=true,
+]{hyperref}
+\usepackage[ngerman]{cleveref}
+\usepackage{scrhack}
+
+% configure your listings style
+\usepackage{listings}

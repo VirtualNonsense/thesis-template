@@ -9,3 +9,6 @@
 *.blg
 *.run.xml
 *.out
+*synctex.gz
+*.listing
+_minted-*/
