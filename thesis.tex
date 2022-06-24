@@ -1,9 +1,10 @@
 \documentclass[
+	oneside,
     11pt,
     a4paper,
     egregdoesnotlikesansseriftitles,
     toc=chapterentrywithdots,
-    twoside,openright,
+    openright,
     titlepage,
     parskip=half,
     headings=normal,  % reduces heading size
@@ -15,15 +16,18 @@
     listof=flat,
     final
 ]{scrbook}
+\input{title_page_definitions}
+\input{my_packages}
 
 \input{commands}
- 
-\input{my_packages}
+
 
 \input{package_config}
 
-\input{definitions}
+\input{environments}
 
+
+\addbibresource{refs.bib}
 
 % TODO remove if not needed...
 \usepackage{blindtext}
@@ -33,112 +37,110 @@
 \loadglsentries{glossary}
 
 \begin{document}
-	
 	\setcounter{secnumdepth}{3}  % numerate subsections
-	\setcounter{tocdepth}{2}  % ...but don't include them in toc
-	
-	\frontmatter
-	\include{cover}\cleardoublepage
-	
-	% download the following form and complete it (hit save in your editor)
-	% https://intern.ohmportal.de/fileadmin/Gelenkte_Doks/Abt/SZS/SB/SB_0050_FO_Pruefungsrechtliche_Erklaerung_und_Erklaerung_zur_Veroeffentlichung_der_Abschlussarbeit_public.pdf
-	% \includepdf{SB_0050_FO_Pruefungsrechtliche_Erklaerung_und_Erklaerung_zur_Veroeffentlichung_der_Abschlussarbeit_public.pdf}\cleardoublepage
-	\include{content/0_abstract}\cleardoublepage
-	
-	\tableofcontents
-	
-	\mainmatter
-	\begin{pythonCode}{123}{pythontest}
-for i in range(10):
+\setcounter{tocdepth}{2}  % ...but don't include them in toc
+
+\frontmatter
+\include{cover}\cleardoublepage
+
+% download the following form and complete it (hit save in your editor)
+% https://intern.ohmportal.de/fileadmin/Gelenkte_Doks/Abt/SZS/SB/SB_0050_FO_Pruefungsrechtliche_Erklaerung_und_Erklaerung_zur_Veroeffentlichung_der_Abschlussarbeit_public.pdf
+% \includepdf{SB_0050_FO_Pruefungsrechtliche_Erklaerung_und_Erklaerung_zur_Veroeffentlichung_der_Abschlussarbeit_public.pdf}\cleardoublepage
+\include{content/0_abstract}\cleardoublepage
+
+\tableofcontents
+
+\mainmatter
+\begin{pythonCode}{123}{pythontest}
+	for i in range(10):
 	print(i)
-	\end{pythonCode}
+\end{pythonCode}
 \cref{python:pythontest}
-	\begin{rustCode}{1}{test}
-fn test(test: &mut u8) -> &mut u8{
-	test
-}
-	\end{rustCode}
-	\cref{rust:test}
-	\begin{pseudoCode}
-		{MASS}
-		{\emph{Q}, \emph{T}}
-		{\underline{Input}: \emph{Abfrageteilsequenz Q, gesamte Zeitreihe T}\\\underline{Output}: \emph{Distanzprofil D der Abfrageteilsequenz Q}}
-		{11}
-		{MASS}
-|$m$| = Length(|$\mathbf{T}$|) - Length(|$\mathbf{P}$|)
-|$\boldsymbol{\mu}, \boldsymbol{\sigma}$| = ComputeMeanStd(|$\mathbf{T}, m$|) 
-|$motif\_distances, motif\_indices, motif\_subspaces, motif\_mdls$| = |$[\ ]$|
-if not set otherwise
-compute default values
-
-|$candidate\_idx$| = get indices of row-wise minima in |$\mathbf{P}$|
-|$nn\_idx$| = length |$d$| zero array
-for k from 1 to |$d$|
-|$nn\_idx[k]$| = |$\mathbf{I}[k, candidate\_idx]$|
-while Length(|$motif\_distances$|) < |$max\_motifs$|
-|$mdls, subspaces$| = mdl(|$\mathbf{T}, m, candidate\_idx, nn\_idx, include$|)
-if k is None
-|$k$| = get index of minimum in |$mdls$|
-|$subspace\_k$| = |$subspaces[k]$|
-|$motif\_idx$ = $candidate\_idx[k]$|
-|$motiv\_value$ = $\mathbf{P}[k, motif\_idx]$|	
-if (|$motif\_value > cutoffs[k]$| or |$motif\_value$| is inf
-or |$motif\_value > max\_distance$|)
-break	
-|$query\_matches$| = match(
-|$\mathbf{T}[subspace\_k, motif\_idx : motif\_idx + m]$|, |$\mathbf{T}[subspace\_k]$|,
-|$\boldsymbol{\mu}[subspace\_k]$|, |$\boldsymbol{\sigma}[subspace\_k]$|, |$max\_matches$|, |$max\_distance$|,
-|$atol$|, |$motif\_idx$|, |$normalize$|, |$p$|
-)
-if Length(|$query\_matches > min\_neighbors$|)
-append |$query\_matches, subspace\_k, mdls$| to output
-for idx in |$query\_matches[:, 1]$|
-ApplyExclusionZone(|$\mathbf{P}, idx$|)
-find new |$candidate\_idx$| and |$nn\_idx$|
-return |$motif\_distances, motif\_indices, motif\_subspaces, motif\_mdls$|
-
-
-
-
-
-
-
-
-
-
-asdf
-
-
-
-
-
-	\end{pseudoCode}
-	\cref{MASS}
-
-	\include{content/2_data}
-	\include{content/3_method}
-	\include{content/4_experiments}
-	\include{content/5_outlook}
-	\include{content/6_summary}
+\begin{rustCode}{1}{test}
+	fn test(test: &mut u8) -> &mut u8{
+		test
+	}
+\end{rustCode}
+\cref{rust:test}
+\begin{pseudoCode}
+	{MASS}
+	{\emph{Q}, \emph{T}}
+	{\underline{Input}: \emph{Abfrageteilsequenz Q, gesamte Zeitreihe T}\\\underline{Output}: \emph{Distanzprofil D der Abfrageteilsequenz Q}}
+	{11}
+	{MASS}
+	|$m$| = Length(|$\mathbf{T}$|) - Length(|$\mathbf{P}$|)
+	|$\boldsymbol{\mu}, \boldsymbol{\sigma}$| = ComputeMeanStd(|$\mathbf{T}, m$|) 
+	|$motif\_distances, motif\_indices, motif\_subspaces, motif\_mdls$| = |$[\ ]$|
+	if not set otherwise
+	compute default values
 	
-	% remove if not needed
-	\appendix
-	\include{content/a1_supplemental}
+	|$candidate\_idx$| = get indices of row-wise minima in |$\mathbf{P}$|
+	|$nn\_idx$| = length |$d$| zero array
+	for k from 1 to |$d$|
+	|$nn\_idx[k]$| = |$\mathbf{I}[k, candidate\_idx]$|
+	while Length(|$motif\_distances$|) < |$max\_motifs$|
+	|$mdls, subspaces$| = mdl(|$\mathbf{T}, m, candidate\_idx, nn\_idx, include$|)
+	if k is None
+	|$k$| = get index of minimum in |$mdls$|
+	|$subspace\_k$| = |$subspaces[k]$|
+	|$motif\_idx$ = $candidate\_idx[k]$|
+	|$motiv\_value$ = $\mathbf{P}[k, motif\_idx]$|	
+	if (|$motif\_value > cutoffs[k]$| or |$motif\_value$| is inf
+	or |$motif\_value > max\_distance$|)
+	break	
+	|$query\_matches$| = match(
+	|$\mathbf{T}[subspace\_k, motif\_idx : motif\_idx + m]$|, |$\mathbf{T}[subspace\_k]$|,
+	|$\boldsymbol{\mu}[subspace\_k]$|, |$\boldsymbol{\sigma}[subspace\_k]$|, |$max\_matches$|, |$max\_distance$|,
+	|$atol$|, |$motif\_idx$|, |$normalize$|, |$p$|
+	)
+	if Length(|$query\_matches > min\_neighbors$|)
+	append |$query\_matches, subspace\_k, mdls$| to output
+	for idx in |$query\_matches[:, 1]$|
+	ApplyExclusionZone(|$\mathbf{P}, idx$|)
+	find new |$candidate\_idx$| and |$nn\_idx$|
+	return |$motif\_distances, motif\_indices, motif\_subspaces, motif\_mdls$|
 	
-	\backmatter
-	\listoffigures
-	\cleardoublepage
 	
-	\listoftables
-	\cleardoublepage
 	
-	\renewcommand{\lstlistlistingname}{List of Listings}  % change for German thesis
-	\lstlistoflistings
-	\cleardoublepage
 	
-	\bibliographystyle{wmaainf}
-	\bibliography{refs}
 	
+	
+	
+	
+	
+	
+	asdf
+	
+	
+	
+	
+	
+\end{pseudoCode}
+\cref{MASS}
+
+\include{content/2_data}
+\include{content/3_method}
+\include{content/4_experiments}
+\include{content/5_outlook}
+\include{content/6_summary}
+
+% remove if not needed
+\appendix
+\include{content/a1_supplemental}
+
+\backmatter
+\listoffigures
+\cleardoublepage
+
+\listoftables
+\cleardoublepage
+
+\renewcommand{\lstlistlistingname}{List of Listings}  % change for German thesis
+\lstlistoflistings
+\cleardoublepage
+
+	\printbibliography
+	%\bibliographystyle{wmaainf}
 	\printnoidxglossaries
 
 \end{document}
