@@ -12,3 +12,5 @@
 *synctex.gz
 *.listing
 _minted-*/
+*.fdb_latexmk
+*.fls
