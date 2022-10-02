@@ -3,12 +3,18 @@
 Basic template for reports, bachelor and master theses at the [Technische Hochschule Nürnberg Georg Simon Ohm](https://www.th-nuernberg.de/).
 It is set up to be printed as a book including a coverpage.
 
+Extendet template with some quality of live commands and fancy code highlighting
+
 
 ## Important!
 
 You need to download, fill and save-as-pdf the official [statement and copyright form](https://intern.ohmportal.de/fileadmin/Gelenkte_Doks/Abt/SZS/SB/SB_0050_FO_Pruefungsrechtliche_Erklaerung_und_Erklaerung_zur_Veroeffentlichung_der_Abschlussarbeit_public.pdf), in its most recent version.
 It will be included in the final `thesis.pdf`.
 
+
+## Requirements
+- install [Pygments](https://pygments.org) and make sure the python scripts dir is in your path variable
+- use shell-escape when calling pdf latex. pdflatex example: `pdflatex -synctex=1 -interaction=nonstopmode --shell-escape %.tex`
 
 ## A few tips for writing your thesis:
 
