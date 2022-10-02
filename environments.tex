@@ -8,18 +8,34 @@
 \newlength\myboxwidth
 \setlength{\myboxwidth}{\dimexpr\textwidth-20\fboxsep}
 
+
+
 \newtcolorbox[auto counter,
-crefname={Pseudocodeblock}{Pseudocodeblöcke}]%
-{pseudoCodeblock}[1]{
+crefname={Definition}{Definitionen}]%
+{definitionsBlock}[1]{
 	arc=1mm, 
 	breakable,
 	left=.8cm,
 	colback=white,
 	coltitle=black,
-	colframe=blue!40!white,
+	colframe=green!40!white,
 	fonttitle=\sffamily,
-	label=#1,
-	title=Pseudocode \thetcbcounter, 
+	label=def:#1,
+	title=Definition \thetcbcounter, 
+}
+
+\newtcolorbox[auto counter,
+crefname={Pseudocodeblock}{Pseudocodeblöcke}]%
+{pseudoCodeblock}[1]{
+arc=1mm, 
+breakable,
+left=.8cm,
+colback=white,
+coltitle=black,
+colframe=blue!40!white,
+fonttitle=\sffamily,
+label=#1,
+title=Pseudocode \thetcbcounter, 
 }
 \newenvironment{pseudoCode}[5]{\VerbatimEnvironment\begin{pseudoCodeblock}{#5}\colorbox{blue!40!white}{\textbf{#1}(#2)}\\#3\begin{minted}[linenos,breaklines,escapeinside=||,mathescape=true,firstnumber=#4,baselinestretch=1.2,tabsize=3]{python}}{\end{minted}\end{pseudoCodeblock}}
 
