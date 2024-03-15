@@ -1,4 +1,21 @@
+
+
 # Thesis Template
+
+## Getting started
+
+### Windows
+
+ - Prerequisits 
+	 - `winget install miktex`
+	 - `winget install python.python.3.12` (Add python to PATH)
+	 - `pip install Pygments`
+ - TexStudio
+	 - winget install texstudio`
+	 - open TexStudio
+	 - options -> configure texstudio -> commands
+	 - change PdfLaTex command to `pdflatex.exe -synctex=1 -shell-escape -interaction=nonstopmode %.tex`	 
+ 
 
 Basic template for reports, bachelor and master theses at the [Technische Hochschule Nürnberg Georg Simon Ohm](https://www.th-nuernberg.de/).
 It is set up to be printed as a book including a coverpage.

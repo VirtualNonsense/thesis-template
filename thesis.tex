@@ -18,14 +18,9 @@
 ]{scrbook}
 \input{title_page_definitions}
 \input{my_packages}
-
 \input{commands}
-
-
 \input{package_config}
-
 \input{environments}
-
 
 \addbibresource{refs.bib}
 
@@ -52,14 +47,14 @@
 
 \mainmatter
 \begin{pythonCode}{123}{pythontest}
-	for i in range(10):
+for i in range(10):
 	print(i)
 \end{pythonCode}
 \cref{python:pythontest}
 \begin{rustCode}{1}{test}
-	fn test(test: &mut u8) -> &mut u8{
-		test
-	}
+fn test(test: &mut u8) -> &mut u8{
+	test
+}
 \end{rustCode}
 \cref{rust:test}
 \begin{pseudoCode}
