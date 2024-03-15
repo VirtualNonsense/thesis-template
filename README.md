@@ -11,7 +11,7 @@
 	 - `winget install python.python.3.12` (Add python to PATH)
 	 - `pip install Pygments`
  - TexStudio
-	 - winget install texstudio`
+	 - `winget install texstudio`
 	 - open TexStudio
 	 - options -> configure texstudio -> commands
 	 - change PdfLaTex command to `pdflatex.exe -synctex=1 -shell-escape -interaction=nonstopmode %.tex`	 
